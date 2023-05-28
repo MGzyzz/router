@@ -24,6 +24,13 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
         static_responder = StaticResponder(request, response, 'static')
 
         router.run(request, response)
+        
+        print(
+            f'Method: {request.method}\n'
+            f'URI: {request.uri}\n'
+            f'Protocol: {request.protocol}\n'
+        )
+        
         response.send()
 
 
